@@ -107,6 +107,9 @@ const getData = async (id) => {
         throw new PDFDataImportError("Invalid ID");
       }
 
+      if (data.acceptedContents === undefined)
+        throw new PDFDataImportError("No accepted Questions");
+
       const questionIds = sections.map((section) => {
         if (section.children)
           return section.children
